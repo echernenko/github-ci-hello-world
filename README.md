@@ -1,6 +1,6 @@
 # GitHub Actions test for hello world Java project
 
-Config (file `.github/workflows/maven.yml`)
+Config (file `.github/workflows/maven.yml`).
 
 ```
 name: Master Branch
