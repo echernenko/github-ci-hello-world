@@ -1,4 +1,4 @@
-![example workflow file path](https://github.com/echernenko/github-ci-hello-world/.github/workflows/vanilla-java.yml/badge.svg)
+![example workflow file path](https://github.com/echernenko/github-ci-hello-world/workflows/CI/badge.svg)
 
 # GitHub Actions - compiling and running the code
 
