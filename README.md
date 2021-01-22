@@ -1,27 +1,22 @@
-# GitHub Actions test for hello world Java project
+# GitHub Actions - compiling and running the code
 
-Config (file `.github/workflows/maven.yml`).
+Config (file `.github/workflows/vanilla-java.yml`).
 
 ```
-name: Master Branch
+name: CI
 
 on:
   push:
-    branches-ignore:
-      - 'release*'
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
-
-  test:
-    name: Unit Test
-    runs-on: ubuntu-18.04
-
+  build:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Set up JDK 11
-        uses: actions/setup-java@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
         with:
-          java-version: 1.11
-      - name: Maven Test
-        run: mvn test
+          java-version: '13' # The JDK version to make available on the path.
+      - run: javac Sandbox.java; java Sandbox;
 ```
