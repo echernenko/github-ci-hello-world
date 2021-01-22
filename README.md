@@ -1,11 +1,27 @@
-# Java Test Package
+# GitHub Actions test for hello world Java project
 
-This project aims to generate a Java JAR library package for testing purposes.
+Config (file `.github/workflows/maven.yml`)
 
-## Usage
+```
+name: Master Branch
 
-`$ mvn package`
+on:
+  push:
+    branches-ignore:
+      - 'release*'
 
-## Copyright
+jobs:
 
-Computology LLC 2017
+  test:
+    name: Unit Test
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.11
+      - name: Maven Test
+        run: mvn test
+```
